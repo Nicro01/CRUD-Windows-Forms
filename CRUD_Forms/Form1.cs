@@ -34,6 +34,7 @@ namespace CRUD_Forms
             
         }
 
+        //Método para atualizar usuário no banco de dados
         private void Update(int id)
         {
             Connection con = new Connection();
@@ -150,6 +151,7 @@ namespace CRUD_Forms
             MessageBox.Show("Usuário removido com sucesso!");
         }
 
+
         private void UpTb_Click(object sender, EventArgs e)
         {
             try
@@ -167,6 +169,11 @@ namespace CRUD_Forms
                 MessageBox.Show("Erro ao atualizar usuário.\n\n" + ex.ToString());
                 return;
             }
+
+            //Esvaziar inputs
+            IdTb.Text = string.Empty;
+            NameTb.Text = string.Empty;
+            CpfTb.Text = string.Empty;
 
             Listar();
         }
