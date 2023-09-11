@@ -34,6 +34,15 @@ namespace CRUD_Forms
             
         }
 
+        private void Update(int id)
+        {
+            Connection con = new Connection();
+            con.AbrirConexao();
+            sql = new MySqlCommand("UPDATE profile SET name = '" + NameTb.Text + "', cpf = '" + CpfTb.Text + "' WHERE id = " + id, con.con);
+            sql.ExecuteReader();
+            con.CloseConnection();
+        }
+
         //Método para remover usuário do banco de dados
         private void Remove(int id)
         {
@@ -139,6 +148,27 @@ namespace CRUD_Forms
             IdTb.Text = string.Empty;
             Listar();
             MessageBox.Show("Usuário removido com sucesso!");
+        }
+
+        private void UpTb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IdTb.Text == string.Empty)
+                {
+                    MessageBox.Show("Digite o ID do usuário que deseja atualizar");
+                    return;
+                }
+                Update(Convert.ToInt32(IdTb.Text));
+                MessageBox.Show("Usuário atualizado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar usuário.\n\n" + ex.ToString());
+                return;
+            }
+
+            Listar();
         }
     }
 

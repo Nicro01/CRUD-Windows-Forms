@@ -107,6 +107,7 @@
             this.UpTb.TabIndex = 7;
             this.UpTb.Text = "Edit";
             this.UpTb.UseVisualStyleBackColor = true;
+            this.UpTb.Click += new System.EventHandler(this.UpTb_Click);
             // 
             // AddBt
             // 
