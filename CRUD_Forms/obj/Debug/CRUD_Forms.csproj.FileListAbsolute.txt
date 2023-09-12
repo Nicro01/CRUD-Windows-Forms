@@ -24,3 +24,4 @@ C:\Users\Finger\Desktop\CRUD_Forms\CRUD_Forms\obj\Debug\CRUD_Forms.csproj.CopyCo
 C:\Users\Finger\Desktop\CRUD_Forms\CRUD_Forms\obj\Debug\CRUD_Forms.exe
 C:\Users\Finger\Desktop\CRUD_Forms\CRUD_Forms\obj\Debug\CRUD_Forms.pdb
 C:\Users\Finger\Desktop\CRUD_Forms\CRUD_Forms\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Finger\Desktop\CRUD_Forms\CRUD_Forms\bin\Debug\NITGEN.SDK.NBioBSP.dll

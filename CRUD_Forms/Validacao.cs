@@ -21,18 +21,61 @@ namespace CRUD_Forms
         public static Boolean ValidarModelo(object obj)
         {
             var erros = Validacao.getValidationErros(obj);
+            
             string strErros = "";
             foreach (var error in erros)
             {
-                //MessageBox.Show((error.ErrorMessage));
+               
                 strErros += error.ErrorMessage + Environment.NewLine;
             }
             if (strErros.Length > 0)
             {
-                // Se existirem erros apresenta Mensagem com a listagem de erros, 
-                // você pode modificar esta classe para retornar a listagem dos erros e apresentar em um label em seu formulario 
+                
                 strErros = "Corrija os problemas abaixo: " + Environment.NewLine + Environment.NewLine + strErros;
                 MessageBox.Show(strErros, "Erros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        public static Boolean ValidarNome(object obj)
+        {
+            var nameError = Validacao.getValidationErros(obj).Where(x => x.MemberNames.Contains("name")).FirstOrDefault();
+            string strErros = "";
+
+            if (nameError == null)
+            {
+                return true;
+            }
+
+            strErros = nameError.ErrorMessage + Environment.NewLine;
+            
+            
+
+            if (strErros.Length > 0)
+            { 
+                return false;
+            }
+
+            return true;
+        }
+
+        public static Boolean ValidarCPF(object obj)
+        {
+            var nameError = Validacao.getValidationErros(obj).Where(x => x.MemberNames.Contains("cpf")).FirstOrDefault();
+            string strErros = "";
+
+            if (nameError == null)
+            {
+                return true;
+            }
+
+            strErros += nameError.ErrorMessage + Environment.NewLine;
+
+
+            if (strErros.Length > 0)
+            {
                 return false;
             }
 
