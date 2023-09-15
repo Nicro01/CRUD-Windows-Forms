@@ -4,7 +4,7 @@ using MySqlConnector;
 
 namespace CRUD_Forms
 {
-    internal class Connection
+    public class Connection
     {
         readonly string connection = "SERVER=localhost; DATABASE=crud_forms; UID=root; PWD= 123456789";
 

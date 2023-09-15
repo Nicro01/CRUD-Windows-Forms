@@ -50,10 +50,9 @@
             this.returnUE = new System.Windows.Forms.Label();
             this.returnId = new System.Windows.Forms.Label();
             this.returnLb = new System.Windows.Forms.Label();
-            this.DgvVerify = new System.Windows.Forms.DataGridView();
+            this.LeaveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvVerify)).BeginInit();
             this.SuspendLayout();
             // 
             // Dgv
@@ -66,8 +65,11 @@
             this.Dgv.Location = new System.Drawing.Point(12, 213);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
-            this.Dgv.Size = new System.Drawing.Size(465, 112);
+            this.Dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dgv.Size = new System.Drawing.Size(599, 112);
             this.Dgv.TabIndex = 0;
+            this.Dgv.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellContentDoubleClick);
+            this.Dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellDoubleClick);
             // 
             // label1
             // 
@@ -119,6 +121,7 @@
             // 
             // UpTb
             // 
+            this.UpTb.Enabled = false;
             this.UpTb.Location = new System.Drawing.Point(238, 115);
             this.UpTb.Name = "UpTb";
             this.UpTb.Size = new System.Drawing.Size(124, 23);
@@ -237,20 +240,23 @@
             this.returnLb.TabIndex = 0;
             this.returnLb.Text = "Return: ";
             // 
-            // DgvVerify
+            // LeaveButton
             // 
-            this.DgvVerify.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvVerify.Location = new System.Drawing.Point(501, 213);
-            this.DgvVerify.Name = "DgvVerify";
-            this.DgvVerify.Size = new System.Drawing.Size(250, 112);
-            this.DgvVerify.TabIndex = 19;
+            this.LeaveButton.Location = new System.Drawing.Point(238, 144);
+            this.LeaveButton.Name = "LeaveButton";
+            this.LeaveButton.Size = new System.Drawing.Size(124, 23);
+            this.LeaveButton.TabIndex = 19;
+            this.LeaveButton.Text = "Leave";
+            this.LeaveButton.UseVisualStyleBackColor = true;
+            this.LeaveButton.Visible = false;
+            this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 395);
-            this.Controls.Add(this.DgvVerify);
+            this.ClientSize = new System.Drawing.Size(625, 333);
+            this.Controls.Add(this.LeaveButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labStatus);
@@ -269,10 +275,10 @@
             this.Controls.Add(this.Dgv);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvVerify)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,7 +305,7 @@
         private System.Windows.Forms.Label returnLb;
         private System.Windows.Forms.Label returnUE;
         private System.Windows.Forms.Label returnId;
-        private System.Windows.Forms.DataGridView DgvVerify;
+        private System.Windows.Forms.Button LeaveButton;
     }
 }
 

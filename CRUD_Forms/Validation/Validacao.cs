@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 
-namespace CRUD_Forms
+namespace CRUD_Forms.Validation
 {
-    public static class Validacao
+    public class Validacao
     {
+        
         public static IEnumerable<ValidationResult> getValidationErros(object obj)
         {
             var resultadoValidacao = new List<ValidationResult>();
@@ -18,7 +19,7 @@ namespace CRUD_Forms
             return resultadoValidacao;
         }
 
-        public static Boolean ValidarModelo(object obj)
+        public Boolean ValidarModelo(object obj)
         {
             var erros = Validacao.getValidationErros(obj);
             
@@ -81,5 +82,31 @@ namespace CRUD_Forms
 
             return true;
         }
+
+        public void Validation_Function(Model.User user, Label nameRequired, Label cpfRequired)
+        {
+            if (ValidarNome(user) == false && ValidarCPF(user) == false)
+            {
+                nameRequired.Visible = true;
+                cpfRequired.Visible = true;
+            }
+            else if (Validacao.ValidarCPF(user) == false)
+            {
+                cpfRequired.Visible = true;
+                nameRequired.Visible = false;
+            }
+            else if (Validacao.ValidarNome(user) == false)
+            {
+                cpfRequired.Visible = false;
+                nameRequired.Visible = true;
+            }
+            else
+            {
+                cpfRequired.Visible = false;
+                nameRequired.Visible = false;
+            }
+        }
+
+
     }
 }
