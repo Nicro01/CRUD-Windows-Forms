@@ -72,7 +72,7 @@ namespace CRUD_Forms.Entity
 
 
             ret = m_NBioAPI.VerifyMatch(hCapturedFIR, m_textFIR, out result, myPayload);
-
+           
             return result;
         }
     }
